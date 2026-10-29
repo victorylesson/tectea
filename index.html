@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TecTEA · Aprendendo tecnologia no seu ritmo</title>
+  <meta name="description" content="Mini curso de alfabetização digital para crianças e adolescentes com Transtorno do Espectro Autista (TEA).">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main id="conteudo">
+
+    <!-- 1. BOAS-VINDAS -->
+    <section class="hero" id="inicio" aria-labelledby="t-hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 id="t-hero">Olá! Vamos conhecer a tecnologia?</h1>
+          <p class="lead">Aqui você aprende o básico do computador, com calma, um passo de cada vez. Pode repetir quantas vezes quiser.</p>
+          <a class="btn btn-primary btn-big" href="aula.html?id=1">▶ Começar a Aula 1</a>
+          <a class="btn btn-big" href="#aulas">Ver todas as aulas</a>
+        </div>
+        <div class="hero-art" data-img="computador" role="img" aria-label="Desenho de um computador com monitor, teclado, mouse e gabinete"></div>
+      </div>
+    </section>
+
+    <!-- 2. COMO FUNCIONA -->
+    <section class="section" id="como-funciona" aria-labelledby="t-como">
+      <div class="container">
+        <h2 class="section-title" id="t-como">Como funciona cada aula</h2>
+        <p class="lead" style="text-align:center">Todas as aulas seguem os mesmos 5 passos. Assim, você sempre sabe o que vem depois.</p>
+        <ol class="steps-grid">
+          <li class="step-card"><span class="big-emoji" aria-hidden="true">👋</span><b>1. Boas-vindas</b><span class="sm">Apresentamos o assunto do dia.</span></li>
+          <li class="step-card"><span class="big-emoji" aria-hidden="true">📖</span><b>2. Explicação</b><span class="sm">Um conceito por vez, com imagens grandes.</span></li>
+          <li class="step-card"><span class="big-emoji" aria-hidden="true">👀</span><b>3. Na prática</b><span class="sm">Vemos como funciona de verdade.</span></li>
+          <li class="step-card"><span class="big-emoji" aria-hidden="true">🎮</span><b>4. Atividade</b><span class="sm">Você tenta, e pode errar sem problema.</span></li>
+          <li class="step-card"><span class="big-emoji" aria-hidden="true">🌟</span><b>5. Encerramento</b><span class="sm">Contamos o que aprendemos e como foi.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3. AULAS -->
+    <section class="section alt" id="aulas" aria-labelledby="t-aulas">
+      <div class="container">
+        <h2 class="section-title" id="t-aulas">Módulo 1 · Alfabetização Digital</h2>
+        <p class="lead" style="text-align:center">Primeiros passos no mundo da tecnologia. Escolha uma aula.</p>
+        <ul class="aulas-grid" id="lista-aulas" style="list-style:none;padding:0"></ul>
+      </div>
+    </section>
+
+    <!-- 4. EXERCÍCIO PARA EXPERIMENTAR -->
+    <section class="section" id="experimente" aria-labelledby="t-exp">
+      <div class="container">
+        <h2 class="section-title" id="t-exp">Experimente agora</h2>
+        <div class="card">
+          <div id="mini-exercicio"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SOBRE O MÓDULO -->
+    <section class="section alt" id="sobre" aria-labelledby="t-sobre">
+      <div class="container">
+        <h2 class="section-title" id="t-sobre">Sobre o módulo</h2>
+        <div class="about-grid">
+          <div class="card">
+            <h3>Para quem é</h3>
+            <p>Crianças e adolescentes com Transtorno do Espectro Autista (TEA), considerando diferentes idades, conhecimentos prévios, formas de comunicação e necessidades de apoio.</p>
+            <h3>Objetivo</h3>
+            <p>Desenvolver conhecimentos e habilidades básicas para compreender, reconhecer e utilizar dispositivos tecnológicos e suas funções, favorecendo a autonomia digital no cotidiano.</p>
+          </div>
+          <div class="card">
+            <h3>Ao longo do módulo, você vai:</h3>
+            <ul class="check-list">
+              <li>Reconhecer computador, notebook, tablet e celular.</li>
+              <li>Identificar as partes de um computador.</li>
+              <li>Entender o monitor, o teclado, o mouse e outros periféricos.</li>
+              <li>Aprender o que são tela, cursor, ícones, janelas e aplicativos.</li>
+              <li>Praticar clicar, selecionar, digitar e usar botões.</li>
+              <li>Conhecer o começo da organização de arquivos e da navegação em programas.</li>
+              <li>Fazer pequenas tarefas digitais, com ajuda aos poucos, quando precisar.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" style="margin-top:1.5rem">
+          <h3>Pensado com cuidado</h3>
+          <p>Cores calmas, letras grandes, um passo de cada vez, sem sons e sem tempo para acabar. Quem errar recebe uma dica gentil e pode tentar de novo. Use <b>A+</b>, <b>A−</b> e o <b>Modo calmo</b> no topo da página para deixar tudo do seu jeito.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/svgs.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/activities.js"></script>
+  <script src="js/aulas.js"></script>
+  <script src="js/home.js"></script>
+  <noscript><p style="padding:1rem">Este site precisa de JavaScript para mostrar as aulas e atividades.</p></noscript>
+</body>
+</html>
