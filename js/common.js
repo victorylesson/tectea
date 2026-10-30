@@ -1,6 +1,6 @@
 /* ==========================================================
    TecTEA – partes comuns às duas páginas
-   - armazenamento local (progresso, tamanho da letra, modo calmo)
+   - armazenamento local (progresso, tamanho da letra)
    - cabeçalho, rodapé e janelas de login/cadastro
    ========================================================== */
 (function () {
@@ -19,7 +19,7 @@
   };
   T.Store = Store;
 
-  const K_PROGRESS = 'tectea:progresso', K_FONT = 'tectea:fonte', K_CALM = 'tectea:calmo';
+  const K_PROGRESS = 'tectea:progresso', K_FONT = 'tectea:fonte-v2';
 
   T.Progress = {
     all() { return Store.get(K_PROGRESS, {}); },
@@ -32,15 +32,11 @@
   };
 
   /* ---------- Preferências de acessibilidade ---------- */
-  const FONT_SIZES = [18, 20, 24, 28];   // px
-  let fontIdx = Store.get(K_FONT, 1);
-  let calm = Store.get(K_CALM, false);
+  const FONT_SIZES = [15, 17, 20, 24];   // px (padrao: 17)
+  let fontIdx = Math.min(FONT_SIZES.length - 1, Math.max(0, Number(Store.get(K_FONT, 1)) || 0));
 
   function applySettings() {
     document.documentElement.style.fontSize = FONT_SIZES[fontIdx] + 'px';
-    document.documentElement.classList.toggle('calmo', calm);
-    const btn = document.querySelector('[data-a11y="calm"]');
-    if (btn) btn.setAttribute('aria-pressed', String(calm));
   }
 
   /* ---------- Cabeçalho, rodapé e janelas ---------- */
@@ -49,7 +45,7 @@
     <header class="site-header">
       <div class="container header-row">
         <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="52" height="52"><span>TecTEA</span></a>
-        <nav aria-label="Menu principal">
+        <nav class="main-nav" aria-label="Menu principal">
           <ul class="nav">
             <li><a href="index.html#inicio">Início</a></li>
             <li><a href="index.html#como-funciona">Como funciona</a></li>
@@ -68,7 +64,6 @@
           <span>Letras:</span>
           <button class="btn" type="button" data-a11y="smaller" aria-label="Diminuir letras">A−</button>
           <button class="btn" type="button" data-a11y="bigger" aria-label="Aumentar letras">A+</button>
-          <button class="btn" type="button" data-a11y="calm" aria-pressed="false">🌿 Modo calmo</button>
         </div>
       </div>
     </header>`;
@@ -114,6 +109,7 @@
     const bottom = document.getElementById('site-footer');
     if (bottom) bottom.outerHTML = FOOTER;
     document.body.insertAdjacentHTML('beforeend', DIALOGS);
+    try { localStorage.removeItem('tectea:calmo'); localStorage.removeItem('tectea:fonte'); } catch (e) { /* ignora */ }
     applySettings();
 
     document.addEventListener('click', e => {
@@ -130,11 +126,10 @@
       const act = a.dataset.a11y;
       if (act === 'bigger') fontIdx = Math.min(FONT_SIZES.length - 1, fontIdx + 1);
       if (act === 'smaller') fontIdx = Math.max(0, fontIdx - 1);
-      if (act === 'calm') calm = !calm;
       if (act === 'reset' && window.confirm('Quer recomeçar do zero? O progresso salvo neste navegador será apagado.')) {
         T.Progress.reset(); location.reload(); return;
       }
-      Store.set(K_FONT, fontIdx); Store.set(K_CALM, calm); applySettings();
+      Store.set(K_FONT, fontIdx); applySettings();
     });
 
     /* ---- Login/cadastro: só o visual por enquanto ----
