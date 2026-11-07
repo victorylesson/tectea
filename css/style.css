@@ -85,10 +85,10 @@ a { color: var(--primary-dark); }
 .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 1.55rem; letter-spacing: .01em; flex: none; }
 .brand img { width: 3rem; height: 3rem; }
 .brand-name { display: inline-flex; }
-.tea i { font-style: normal; }
-.tea .t { color: var(--tea-t); }
-.tea .e { color: var(--tea-e); }
-.tea .a { color: var(--tea-a); }
+.brand .tea i { font-style: normal; }
+.brand .tea .t { color: #e5484d; color: var(--tea-t); -webkit-text-fill-color: currentColor; }
+.brand .tea .e { color: #f0a800; color: var(--tea-e); -webkit-text-fill-color: currentColor; }
+.brand .tea .a { color: #2f6fdb; color: var(--tea-a); -webkit-text-fill-color: currentColor; }
 .main-nav { flex: 1 1 0; min-width: 0; }
 .nav { display: flex; justify-content: center; flex-wrap: nowrap; gap: .1rem; list-style: none; margin: 0; padding: 0; }
 .nav li { --nc: var(--primary); }
@@ -449,16 +449,15 @@ dialog h2 { font-size: 1.6rem; }
 /* Celular */
 @media (max-width: 600px) {
   .container { width: calc(100% - 1.5rem); }
-  .header-row { gap: .5rem .8rem; padding: .6rem 0; }
-  .header-row { padding: .55rem .8rem; border-radius: 22px; }
-  .brand { font-size: 1.35rem; gap: .5rem; }
-  .brand img { width: 2.6rem; height: 2.6rem; border-radius: 13px; }
-  .auth { gap: .4rem; }
-  .auth .btn { min-height: 2.5rem; padding: .25rem .8rem; font-size: .85rem; border-width: 2px; }
-  /* menu vira uma faixa que rola para o lado com o dedo */
-  .nav { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav a { white-space: nowrap; background: var(--bg); border-radius: 99px; padding: .4rem .9rem; }
+  .header-row { flex-wrap: wrap; justify-content: space-between; gap: .5rem .6rem; padding: .55rem .8rem; border-radius: 22px; }
+  .brand { font-size: 1.25rem; gap: .45rem; min-width: 0; }
+  .brand img { width: 2.4rem; height: 2.4rem; border-radius: 12px; flex: none; }
+  .auth { gap: .4rem; margin-left: 0; }
+  .auth .btn { min-height: 2.4rem; padding: .2rem .7rem; font-size: .8rem; border-width: 2px; }
+  /* menu: todos os itens ficam visíveis, quebrando em linhas (sem rolar para o lado) */
+  .main-nav { flex: 1 0 100%; }
+  .nav { flex-wrap: wrap; justify-content: center; gap: .4rem; padding-bottom: .2rem; }
+  .nav a { white-space: nowrap; background: var(--bg); border-radius: 99px; padding: .35rem .8rem; font-size: .85rem; }
   .nav a::after { display: none; }
   .a11y-row { gap: .4rem; }
 
@@ -501,9 +500,10 @@ dialog h2 { font-size: 1.6rem; }
 
 /* Celular pequeno */
 @media (max-width: 380px) {
-  .brand { font-size: 1.15rem; }
-  .brand img { width: 2.3rem; height: 2.3rem; }
-  .auth .btn { padding: .2rem .55rem; font-size: .8rem; }
+  .brand { font-size: 1.1rem; }
+  .brand img { width: 2.1rem; height: 2.1rem; }
+  .auth .btn { padding: .2rem .5rem; font-size: .75rem; }
+  .nav a { padding: .3rem .65rem; font-size: .8rem; }
   .steps-grid { grid-template-columns: 1fr; }
   .opt, .piece { flex-basis: 100%; }
   .faces .opt { flex-basis: 100%; }

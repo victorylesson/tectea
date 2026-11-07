@@ -117,9 +117,14 @@
       if (open) {
         const dlg = document.getElementById('dlg-' + open.dataset.open);
         if (dlg && dlg.showModal) dlg.showModal();
+        else if (dlg) dlg.setAttribute('open', '');   /* celulares antigos sem <dialog> */
         return;
       }
-      if (e.target.closest('[data-close]')) { e.target.closest('dialog').close(); return; }
+      if (e.target.closest('[data-close]')) {
+        const d = e.target.closest('dialog');
+        if (d.close) d.close(); else d.removeAttribute('open');
+        return;
+      }
 
       const a = e.target.closest('[data-a11y]');
       if (!a) return;
