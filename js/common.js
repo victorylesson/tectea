@@ -44,7 +44,7 @@
     <a class="skip" href="#conteudo">Ir para o conteúdo</a>
     <header class="site-header">
       <div class="container header-row">
-        <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="52" height="52"><span>TecTEA</span></a>
+        <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="52" height="52"><span class="brand-name">Tec<span class="tea"><i class="t">T</i><i class="e">E</i><i class="a">A</i></span></span></a>
         <nav class="main-nav" aria-label="Menu principal">
           <ul class="nav">
             <li><a href="index.html#inicio">Início</a></li>
